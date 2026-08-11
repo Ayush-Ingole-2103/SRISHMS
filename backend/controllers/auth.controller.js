@@ -269,15 +269,20 @@ const login = async (req, res) => {
 
 const getCurrentUser = async (req, res) => {
 
+    if (!req.session || !req.session.user) {
+        return res.status(401).json({
+            success: false,
+            authenticated: false,
+            message: 'Not authenticated.'
+        });
+    }
+
     return res.status(200).json({
         success: true,
         authenticated: true,
         data: req.session.user
     });
-
 };
-
-
 
 // ============================================================
 // LOGOUT
