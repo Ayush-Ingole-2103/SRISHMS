@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const session = require('express-session');
 
 const { testDatabaseConnection } = require('./config/db');
 const testRoutes = require('./routes/test.routes');
+const authRoutes = require('./routes/auth.routes');
 
 dotenv.config();
 
@@ -20,8 +22,29 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/test', testRoutes);
+// ============================================================
+// SESSION CONFIGURATION
+// ============================================================
 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+
+        resave: false,
+
+        saveUninitialized: false,
+
+        cookie: {
+            httpOnly: true,
+            secure: false,
+            maxAge: 1000 * 60 * 60 * 8
+        }
+    })
+);
+
+//ROUTES=================================================
+app.use('/api/test', testRoutes);
+app.use('/api/auth', authRoutes);
 
 // ============================================================
 // HEALTH CHECK
