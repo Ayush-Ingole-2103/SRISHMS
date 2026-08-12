@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | SRISHMS</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="login-page">
+
+
+        <section class="login-card">
+
+
+            <!-- BRAND -->
+
+            <div class="login-brand">
+
+                <div class="brand-logo">
+                    🛒
+                </div>
+
+                <div>
+
+                    <h1>SRISHMS</h1>
+
+                    <p>
+                        Smart Retail, Better Decisions
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="login-heading">
+
+                <h2>Welcome Back</h2>
+
+                <p>
+                    Sign in to manage your retail inventory
+                </p>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div
+                id="loginError"
+                class="form-error hidden"
+            ></div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="btn primary login-button"
+                >
+
+                    <span id="loginButtonText">
+                        Sign In
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+            <!-- FOOTER -->
+
+            <div class="login-footer">
+
+                <span>
+                    SRISHMS
+                </span>
+
+                <span>•</span>
+
+                <span>
+                    Inventory Management System
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginButton =
+            document.getElementById("loginButton");
+
+        const loginButtonText =
+            document.getElementById("loginButtonText");
+
+        const loginError =
+            document.getElementById("loginError");
+
+
+        loginForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                loginError.classList.add("hidden");
+
+                const email =
+                    document.getElementById("email")
+                        .value
+                        .trim();
+
+                const password =
+                    document.getElementById("password")
+                        .value;
+
+
+                loginButton.disabled = true;
+
+                loginButtonText.textContent =
+                    "Signing in...";
+
+
+                try {
+
+                    const response =
+                        await loginUser(
+                            email,
+                            password
+                        );
+
+
+                    if (response.success) {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    }
+
+                } catch (error) {
+
+                    loginError.textContent =
+                        error.message;
+
+                    loginError.classList.remove(
+                        "hidden"
+                    );
+
+                } finally {
+
+                    loginButton.disabled = false;
+
+                    loginButtonText.textContent =
+                        "Sign In";
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

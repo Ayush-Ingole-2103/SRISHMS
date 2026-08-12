@@ -1,0 +1,629 @@
+/* =========================================================
+   SRISHMS GLOBAL STYLES
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --success: #16a36a;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+
+    --bg: #f6f8fc;
+    --surface: #ffffff;
+
+    --text: #172033;
+    --muted: #6b7280;
+
+    --border: #e5e7eb;
+
+    --sidebar-width: 250px;
+
+    --radius: 12px;
+
+    --shadow:
+        0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    line-height: 1.5;
+}
+
+
+button,
+input,
+select,
+textarea {
+
+    font: inherit;
+}
+
+
+button {
+
+    border: none;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 40px;
+
+    padding: 9px 16px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+
+.btn:hover {
+
+    background: #f8fafc;
+
+}
+
+
+.btn.primary {
+
+    background: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+
+}
+
+
+.btn.primary:hover {
+
+    background: var(--primary-dark);
+
+}
+
+
+.btn:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================================
+   APP LAYOUT
+========================================================= */
+
+.app {
+
+    min-height: 100vh;
+
+    display: flex;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+
+    width: var(--sidebar-width);
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    background: var(--surface);
+
+    border-right: 1px solid var(--border);
+
+    padding: 22px 16px;
+
+    z-index: 100;
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 5px 8px 25px;
+}
+
+
+.brand-logo {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #eff6ff;
+
+    font-size: 22px;
+}
+
+
+.brand b {
+
+    display: block;
+
+    font-size: 18px;
+
+}
+
+
+.brand small {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.nav a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    color: #5f6878;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+
+}
+
+
+.nav a:hover {
+
+    background: #f4f7fb;
+
+    color: var(--primary);
+
+}
+
+
+.nav a.active {
+
+    background: #eff6ff;
+
+    color: var(--primary);
+
+    font-weight: 600;
+
+}
+
+
+.nav .icon {
+
+    width: 20px;
+
+    text-align: center;
+
+}
+
+
+.logout {
+
+    position: absolute;
+
+    bottom: 22px;
+
+    left: 16px;
+
+    right: 16px;
+
+}
+
+
+.logout a {
+
+    display: block;
+
+    padding: 11px 12px;
+
+    color: #6b7280;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+}
+
+
+.logout a:hover {
+
+    background: #fef2f2;
+
+    color: var(--danger);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+
+    margin-left: var(--sidebar-width);
+
+    width: calc(100% - var(--sidebar-width));
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+
+    height: 72px;
+
+    background: white;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+}
+
+
+.top-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.user small {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.avatar {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    padding: 30px;
+
+}
+
+
+.page-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+
+}
+
+
+.page-title h1 {
+
+    font-size: 27px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.page-title p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 20px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.grid {
+
+    display: grid;
+
+    gap: 18px;
+
+}
+
+
+.grid.four {
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+}
+
+
+.grid.two {
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+}
+
+
+.mini-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.mini {
+
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+
+}
+
+
+.mini b {
+
+    display: block;
+
+    font-size: 21px;
+
+    margin: 4px 0;
+
+}
+
+
+.sub {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    padding: 25px 30px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+
+        width: 220px;
+
+    }
+
+    .main {
+
+        margin-left: 220px;
+
+        width: calc(100% - 220px);
+
+    }
+
+    .grid.four {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+
+        transform: translateX(-100%);
+
+    }
+
+    .main {
+
+        margin-left: 0;
+
+        width: 100%;
+
+    }
+
+    .content {
+
+        padding: 20px;
+
+    }
+
+    .grid.two,
+    .grid.four {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

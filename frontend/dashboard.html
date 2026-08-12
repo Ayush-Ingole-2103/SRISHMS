@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | SRISHMS</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🛒
+            </div>
+
+            <div>
+
+                <b>SRISHMS</b>
+
+                <small>
+                    Smart Retail, Better Decisions
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a
+                class="active"
+                href="dashboard.html"
+            >
+                <span class="icon">▦</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span class="icon">▣</span>
+                Products
+            </a>
+
+            <a href="#">
+                <span class="icon">◫</span>
+                Inventory
+            </a>
+
+            <a href="#">
+                <span class="icon">↗</span>
+                Sales
+            </a>
+
+            <a href="#">
+                <span class="icon">🛒</span>
+                Purchases
+            </a>
+
+            <a href="#">
+                <span class="icon">♙</span>
+                Suppliers
+            </a>
+
+            <a href="#">
+                <span class="icon">♥</span>
+                Stock Health
+            </a>
+
+            <a href="#">
+                <span class="icon">▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+
+        <div class="logout">
+
+            <a
+                href="#"
+                id="logoutButton"
+            >
+                ↪ &nbsp; Logout
+            </a>
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <strong>
+                    Dashboard
+                </strong>
+
+            </div>
+
+
+            <div class="top-right">
+
+
+                <span>
+                    🔔
+                </span>
+
+
+                <div class="user">
+
+                    <div
+                        class="avatar"
+                        id="userAvatar"
+                    >
+                        A
+                    </div>
+
+                    <div>
+
+                        <b id="userName">
+                            Admin
+                        </b>
+
+                        <small id="storeName">
+                            Loading...
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+
+            <div class="page-title">
+
+                <div>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Overview of your retail inventory
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STAT CARDS
+            ================================================== -->
+
+            <div class="grid four">
+
+
+                <div class="card">
+
+                    <span class="sub">
+                        Total Products
+                    </span>
+
+                    <h2 id="totalProducts">
+                        —
+                    </h2>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span class="sub">
+                        Stock Value
+                    </span>
+
+                    <h2 id="stockValue">
+                        —
+                    </h2>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span class="sub">
+                        Low Stock
+                    </span>
+
+                    <h2 id="lowStock">
+                        —
+                    </h2>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span class="sub">
+                        Out of Stock
+                    </span>
+
+                    <h2 id="outOfStock">
+                        —
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+            <br>
+
+
+            <!-- =================================================
+                 SALES + STOCK HEALTH
+            ================================================== -->
+
+            <div class="grid two">
+
+
+                <div class="card">
+
+                    <h3>
+                        Sales Summary
+                    </h3>
+
+                    <br>
+
+                    <div class="mini-cards">
+
+
+                        <div class="mini">
+
+                            <span class="sub">
+                                30-Day Sales
+                            </span>
+
+                            <b id="totalSales">
+                                —
+                            </b>
+
+                        </div>
+
+
+                        <div class="mini">
+
+                            <span class="sub">
+                                Orders
+                            </span>
+
+                            <b id="totalOrders">
+                                —
+                            </b>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Stock Health
+                    </h3>
+
+                    <br>
+
+                    <div class="mini-cards">
+
+
+                        <div class="mini">
+
+                            <span class="sub">
+                                Healthy
+                            </span>
+
+                            <b id="healthyStock">
+                                —
+                            </b>
+
+                        </div>
+
+
+                        <div class="mini">
+
+                            <span class="sub">
+                                Monitor
+                            </span>
+
+                            <b id="monitorStock">
+                                —
+                            </b>
+
+                        </div>
+
+
+                        <div class="mini">
+
+                            <span class="sub">
+                                Slow
+                            </span>
+
+                            <b id="slowStock">
+                                —
+                            </b>
+
+                        </div>
+
+
+                        <div class="mini">
+
+                            <span class="sub">
+                                Critical
+                            </span>
+
+                            <b id="criticalStock">
+                                —
+                            </b>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <br>
+
+
+            <!-- =================================================
+                 LOW STOCK
+            ================================================== -->
+
+            <div class="card">
+
+                <h3>
+                    Low Stock Products
+                </h3>
+
+                <br>
+
+                <div
+                    id="lowStockTable"
+                    style="overflow-x:auto;"
+                >
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <div class="footer">
+
+            © 2026 SRISHMS —
+            Smart Retail Inventory & Stock Health Management System
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>
